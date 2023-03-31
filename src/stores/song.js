@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import artist from "../artist.json"
 
-export const useCounterStore = defineStore('song', {
+export const useSongStore = defineStore('song', {
   state: () => ({
     isPlaying: false,
     audio: null,
@@ -67,12 +67,13 @@ export const useCounterStore = defineStore('song', {
       let track = artist.tracks[0]
       this.loadSong(artist, track)
     },
-    
+
     resetState() {
       this.isPlaying = false
       this.audio = null
       this.currentArtist = null
       this.currentTrack = null
     }
-  }
+  },
+  persist: true
 })
